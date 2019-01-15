@@ -1,0 +1,22 @@
+apiVersion: kubedb.com/v1alpha1
+kind: Postgres
+metadata:
+  name: postgres-db
+  namespace: demo
+spec:
+  version: "10.2-v1"
+  storageType: Durable
+  storage:
+    storageClassName: "standard"
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 50Mi
+  terminationPolicy: WipeOut
+  backupSchedule:
+    cronExpression: "@every 2m"
+    storageSecretName: gcs-secret
+    gcs:
+      bucket: kubedb-dev
+      prefix: rezoan

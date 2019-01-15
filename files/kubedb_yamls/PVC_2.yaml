@@ -1,0 +1,26 @@
+#Claim PV for your pods to use
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: second-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Mi
+  storageClassName: manual
+  selector:
+    matchLabels:
+      release: stable
+
+
+
+
+
+
+
+
+
+
+

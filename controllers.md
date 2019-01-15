@@ -84,7 +84,7 @@ lw := cache.NewListWatchFromClient(…)
 sharedInformer := cache.NewSharedInformer(lw, &api.Pod{}, resyncPeriod)
 ```
 
-##### Workqueue
+#### Workqueue
 The SharedInformer can't track what each controller is up to (because it's shared)
 , so the controller must provide its own queuing and retrying mechanism (if required).
 Hence, most Resource Event Handlers simply place items onto a per-consumer workqueue.

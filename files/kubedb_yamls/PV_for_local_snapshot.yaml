@@ -1,0 +1,44 @@
+#first Create PV storage (for mnikube, with hostPath)
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv0003
+  labels:
+    release: stable
+spec:
+  capacity:
+    storage: 20Mi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
+  storageClassName: manual
+  hostPath:
+    path: "/mnt/data"
+---
+#Claim PV for your pods to use
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  namespace: demo
+  name: my-snap-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Mi
+  storageClassName: manual
+  selector:
+    matchLabels:
+      release: stable
+---
+
+
+
+
+
+
+
+
+
+
