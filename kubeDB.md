@@ -37,10 +37,6 @@ $ minikube service pgadmin -n demo --url
 ## Create a PostgreSQL database Using CRD
 #### Create a PG server (custom resource) for storage using Postgres CRD
 
-Use this [file](https://raw.githubusercontent.com/iamrz1/docs/master/files/kubedb_yamls/postgres-admin.yaml) to create a postgresDB
-
-or
-
 ````bash
 $ kubectl create -f https://raw.githubusercontent.com/iamrz1/docs/master/files/kubedb_yamls/postgres-db.yaml
 ````
@@ -99,7 +95,6 @@ $ kubectl apply -f https://raw.githubusercontent.com/iamrz1/docs/master/files/ku
 ````
 
 ### Wall-G (Continuous archiving)
-
 
 
 
