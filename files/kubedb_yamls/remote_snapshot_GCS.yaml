@@ -1,0 +1,23 @@
+apiVersion: kubedb.com/v1alpha1
+kind: Snapshot
+metadata:
+  name: gcs-snapshot
+  namespace: demo
+  labels:
+    kubedb.com/kind: Postgres
+spec:
+  databaseName: postgres-db
+  storageSecretName: gcs-secret
+  gcs:
+    bucket: kubedb-dev
+    prefix: rezoan
+  # podTemplate:
+  #   spec:
+  #     resources:
+  #       requests:
+  #         memory: "64Mi"
+  #         cpu: "250m"
+  #       limits:
+  #         memory: "128Mi"
+  #         cpu: "500m"
+#podTemplate isn't necessary.
